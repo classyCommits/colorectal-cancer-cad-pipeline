@@ -5,56 +5,57 @@
 # -------------------------------------------------------------
 # Data — never commit raw or processed image data
 # -------------------------------------------------------------
-data/raw/
-data/normalized/
-data/normalized_colon/
-data/normalized_test/
-data/patches/
-data/sample/
-datasets/
-outputs/
-# Keep the data folder structure but not contents
-!data/.gitkeep
+data/raw/*
+data/normalized/*
+data/normalized_colon/*
+data/normalized_test/*
+data/patches/*
+data/sample/*
+
+# Keep folder structure via .gitkeep
 !data/raw/.gitkeep
 !data/normalized/.gitkeep
+!data/normalized_colon/.gitkeep
+!data/normalized_test/.gitkeep
 !data/patches/.gitkeep
 !data/sample/.gitkeep
-!outputs/ .gitkeep
 
-# Zip files
-*.zip
-*.tar.gz
-*.tar
+# Zip files inside data
+data/*.zip
+data/*.tar.gz
 
-# Image files (large datasets)
-# Exception: small sample images in data/sample/ are allowed
-# but we gitignore sample/ entirely above, so no conflict
-*.tif
-*.tiff
-*.svs
-*.ndpi
-*.jpeg
-*.png
+# Large image dataset formats (only inside data folders)
+data/**/*.tif
+data/**/*.tiff
+data/**/*.jpeg
+data/**/*.jpg
+data/**/*.png
+data/**/*.svs
+data/**/*.ndpi
+
 # -------------------------------------------------------------
-# Model Weights — large binary files, use Git LFS or Drive
+# Model Weights
 # -------------------------------------------------------------
-stage3_classification/checkpoints/
-stage4_grading/checkpoints/
+stage3_classification/checkpoints/*
+stage4_grading/checkpoints/*
+!stage3_classification/checkpoints/.gitkeep
+!stage4_grading/checkpoints/.gitkeep
 *.pth
 *.pt
 *.ckpt
 *.h5
-*.pkl
 
-# Keep checkpoints folder structure
-!stage3_classification/checkpoints/.gitkeep
-!stage4_grading/checkpoints/.gitkeep
+# -------------------------------------------------------------
+# Archives
+# -------------------------------------------------------------
+*.zip
+*.tar.gz
+*.tar
 
 # -------------------------------------------------------------
 # Python
 # -------------------------------------------------------------
 __pycache__/
-.pytest_cache/
 *.py[cod]
 *$py.class
 *.so
@@ -62,7 +63,10 @@ __pycache__/
 
 # Virtual environments
 .venv/
-
+venv/
+env/
+ENV/
+.env
 
 # Distribution / packaging
 build/
@@ -81,12 +85,9 @@ htmlcov/
 */.ipynb_checkpoints/
 
 # -------------------------------------------------------------
-# Outputs — generated files, not source code
+# Outputs — generated files
 # -------------------------------------------------------------
 outputs/
-# Uncomment below if you WANT to commit output images to show results:
-# !outputs/normalization_comparison.png
-# !outputs/extraction_demo.png
 
 # -------------------------------------------------------------
 # OS files
