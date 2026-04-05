@@ -27,23 +27,27 @@ data/*.tar.gz
 # Large image dataset formats (only inside data folders)
 data/**/*.tif
 data/**/*.tiff
-data/**/*.jpeg
 data/**/*.jpg
-data/**/*.png
 data/**/*.svs
 data/**/*.ndpi
-
+datasets/
 # -------------------------------------------------------------
 # Model Weights
 # -------------------------------------------------------------
-stage3_classification/checkpoints/*
-stage4_grading/checkpoints/*
+# Checkpoints — ignore weights but keep result images
+stage3_classification/checkpoints/*.pth
+stage3_classification/checkpoints/*.pt
+stage3_classification/checkpoints/*.ckpt
+stage4_grading/checkpoints/*.pth
+stage4_grading/checkpoints/*.pt
+stage4_grading/checkpoints/*.ckpt
+
 !stage3_classification/checkpoints/.gitkeep
+!stage3_classification/checkpoints/confusion_matrix.png
+!stage3_classification/checkpoints/gradcam_preview.png
+!stage3_classification/checkpoints/training_curves.png
+!stage3_classification/checkpoints/training_history.json
 !stage4_grading/checkpoints/.gitkeep
-*.pth
-*.pt
-*.ckpt
-*.h5
 
 # -------------------------------------------------------------
 # Archives
