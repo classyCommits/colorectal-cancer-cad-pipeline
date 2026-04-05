@@ -1,0 +1,109 @@
+# =============================================================
+# Colorectal Cancer CAD Pipeline — .gitignore
+# =============================================================
+
+# -------------------------------------------------------------
+# Data — never commit raw or processed image data
+# -------------------------------------------------------------
+data/raw/
+data/normalized/
+data/normalized_colon/
+data/normalized_test/
+data/patches/
+data/sample/
+datasets/
+outputs/
+# Keep the data folder structure but not contents
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/normalized/.gitkeep
+!data/patches/.gitkeep
+!data/sample/.gitkeep
+!outputs/ .gitkeep
+
+# Zip files
+*.zip
+*.tar.gz
+*.tar
+
+# Image files (large datasets)
+# Exception: small sample images in data/sample/ are allowed
+# but we gitignore sample/ entirely above, so no conflict
+*.tif
+*.tiff
+*.svs
+*.ndpi
+*.jpeg
+*.png
+# -------------------------------------------------------------
+# Model Weights — large binary files, use Git LFS or Drive
+# -------------------------------------------------------------
+stage3_classification/checkpoints/
+stage4_grading/checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.pkl
+
+# Keep checkpoints folder structure
+!stage3_classification/checkpoints/.gitkeep
+!stage4_grading/checkpoints/.gitkeep
+
+# -------------------------------------------------------------
+# Python
+# -------------------------------------------------------------
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# -------------------------------------------------------------
+# Outputs — generated files, not source code
+# -------------------------------------------------------------
+outputs/
+# Uncomment below if you WANT to commit output images to show results:
+# !outputs/normalization_comparison.png
+# !outputs/extraction_demo.png
+
+# -------------------------------------------------------------
+# OS files
+# -------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -------------------------------------------------------------
+# IDE
+# -------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------------------------------------------
+# Misc
+# -------------------------------------------------------------
+folderstructure.md

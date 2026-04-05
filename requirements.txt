@@ -1,0 +1,15 @@
+numpy
+pillow
+matplotlib
+tqdm
+scikit-learn
+torch
+torchvision
+timm
+datasets
+seaborn
+grad-cam
+streamlit
+opencv-python
+pytest
+python-dotenv
